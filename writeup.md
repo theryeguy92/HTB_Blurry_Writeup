@@ -53,8 +53,6 @@ One thing to note, to be sure that the libraries are installed correctly, I ran 
 pip install clearml
 pip install clearml-init
 pip install clearml-agent
-
-}
 ```
 For some reason the original pip install ClearML did not properly install the clearml-init and clearml-agent for me. If you run into issues, I recommend retying to pip install these.
 
@@ -156,4 +154,13 @@ At last, we are logged in as root.
 From here, we can explore directories as root, and we can cat the root.txt file to get the root flag.
 
 ![rooted](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/7f4a980e-eb49-4cce-9106-518bd9062457)
+
+
+This was an extremely interesting HTB challenge as this focuses on exploiting ML tools that are continuing to be put on the market at an ever-evolving rate. This is a fantastic exercise in highlighting potential vulnerabilities and how we can combat them.
+
+If you have any questions, feel free to reach me on LinkedIn.
+
+
+
+
 
