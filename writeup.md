@@ -104,6 +104,9 @@ Now we are in the system and gained a foothold. It is good practice to see who w
 
 As seen below, we are the user jippity and they are able to run sudo privilages on the file path /user/bin/evaluate_model /models/*.pth. This means that we are able to run sudo level commands in this directory.
 
+![root permissions](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/ab4bc222-3ff4-4fb3-b4b4-60f91938307d)
+
+
 Before we do that, we can explore the directory to find the user flag. You should be able to find pretty easily as you navigate through the user files.
 
 ![userflag](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/721c2932-9a6a-49d3-b8e3-6ba81fed24ee)
