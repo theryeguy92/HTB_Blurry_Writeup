@@ -1,7 +1,7 @@
 # Blurry Writeup
 
 # Intro
-Blurry is an interesting HTB machine where you will leverage the CVE 2024-24590 exploit to pop a reverse shell in order to escalate your privlages within the local network. This box uses ClearML, an open-source machine learning platform that allows its users to streamline the machine learning lifecycle. ClearML is used by many Data Engineers and Data Scientist.
+Blurry is an interesting HTB machine where you will leverage the CVE 2024-24590 exploit to pop a reverse shell in order to escalate your privlages within the local system. This box uses ClearML, an open-source machine learning platform that allows its users to streamline the machine learning lifecycle. ClearML is used by many Data Engineers and Data Scientist.
 
 Below you can find of the tools that I used to complete this challenge
 1. Kali Linux: An operating system that specializes in penetration testing.
