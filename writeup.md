@@ -67,7 +67,8 @@ The pickle library is used by many python users. The uses range from data transf
 
 However in this case, we will use it as an exploit. Below is the python payload that I used.
 
-![python payload CVE 2024 24590](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/04e406a0-42c0-40dc-8ff7-d8e9b33adcec)
+![image](https://github.com/theryeguy92/HTB_Blurry_Writeup/assets/103153678/7d527fcd-1162-4f90-9172-747763d35ece)
+
 
 
 ### Exploitation Foothold
